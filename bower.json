@@ -1,0 +1,26 @@
+{
+  "name": "reactors-icons",
+  "description": "font icons for reactors",
+  "main": "dist/components/Icon.js",
+  "authors": [
+    "co2-git <francoisrvespa@gmail.com>"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "reactors",
+    "icons",
+    "fonts"
+  ],
+  "homepage": "https://github.com/co2-git/reactors-icons",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.6.3"
+  }
+}
