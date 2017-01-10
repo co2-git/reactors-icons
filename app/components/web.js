@@ -3,17 +3,17 @@ import _ from 'lodash';
 import Icon from './Icon';
 import {Gesture} from 'reactors';
 
+const HREF = 'node_modules/reactors-icons/assets/' +
+  'font-awesome/css/font-awesome.min.css';
+
 export default class IconWeb extends Component {
   componentWillMount() {
     if (typeof window === 'object') {
-      if (Icon.href) {
-        const link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.href = Icon.href;
-        document.querySelector('head').appendChild(link);
-      } else {
-        console.warn('reactors-icons: no href set');
-      }
+      const href = Icon.href || HREF;
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.querySelector('head').appendChild(link);
     }
   }
   render() {
