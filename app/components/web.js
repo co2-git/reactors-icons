@@ -1,32 +1,24 @@
-import React, {Component} from 'react';
-import _ from 'lodash';
+import omit from 'lodash/omit';
+import React, {PureComponent} from 'react';
+import Reactors, {Text} from 'reactors';
+
 import Icon from './Icon';
-import {Gesture} from 'reactors';
 
-const HREF = 'node_modules/reactors-icons/assets/' +
-  'font-awesome/css/font-awesome.min.css';
-
-export default class IconWeb extends Component {
-  componentWillMount() {
-    if (typeof window === 'object') {
-      const href = Icon.href || HREF;
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = href;
-      document.querySelector('head').appendChild(link);
-    }
-  }
+export default class IconWeb extends PureComponent {
   render() {
-    const className = ['fa', `fa-${this.props.name}`, this.props.className];
-    const handlers = Gesture.handlers(this.props);
-    const props = _.omit({...handlers}, [
-      'vendor', 'name', 'size'
-    ]);
+    const props = omit(Reactors.props(this.props), ['color', 'name', 'size']);
+
     return (
-      <span
-        className={className.join(' ')}
+      <Text
+        className={`icon-${this.props.name}`}
         {...props}
-        />
+        style={[
+          {display: 'inline'},
+          this.props.color && {color: this.props.color},
+          this.props.size && {width: this.props.size},
+          props.style,
+        ]}
+      />
     );
   }
 }

@@ -1,21 +1,29 @@
-import React from 'react';
+import React, {PureComponent} from 'react';
 import Reactors from 'reactors';
-import IconWeb from './web';
 
-export default function Icon(props) {
-  switch (Reactors.platform) {
-
-  default: {
-    throw new Error('Unknown reactors platform ' + Reactors.platform);
-  }
-
-  case 'web': case 'desktop': {
-    return <IconWeb {...props} />;
-  }
-
-  case 'mobile': case 'ios': case 'android': {
-    const {Text} = require('react-native');
-    return <Text>MOBILE ICON</Text>;
-  }
-  }
+export default class Icon extends PureComponent {
+  static setSource = href => {
+    switch (Reactors.platform) {
+    default: {
+      throw new Error('Unknown reactors platform ' + Reactors.platform);
+    }
+    case 'web': case 'desktop': {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = href;
+      document.querySelector('head').appendChild(link);
+    }
+    }
+  };
+  render = () => {
+    switch (Reactors.platform) {
+    default: {
+      throw new Error('Unknown reactors platform ' + Reactors.platform);
+    }
+    case 'web': case 'desktop': {
+      const IconWeb = require('./web').default;
+      return <IconWeb {...this.props} />;
+    }
+    }
+  };
 }

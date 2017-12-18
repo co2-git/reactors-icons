@@ -1,23 +1,22 @@
 {
   "name": "reactors-icons",
-  "version": "1.0.2",
-  "description": "",
+  "version": "3.0.0",
+  "description": "Font icons support for reactors",
   "main": "dist/components/Icon.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel --out-dir dist/ app/",
-    "babel:watch": "babel --watch --out-dir dist/ app/",
-    "postinstall": "bower install"
+    "babel": "rm -rf dist; babel --out-dir dist/ app/",
+    "babel:watch": "rm -rf dist; babel --watch --out-dir dist/ app/"
   },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "babel-preset-es2015": "^6.14.0",
-    "babel-preset-react": "^6.11.1",
-    "babel-preset-stage-0": "^6.5.0"
-  },
   "dependencies": {
-    "bower": "^1.7.9",
-    "lodash": "^4.15.0"
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-env": "^2.4.1",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
   }
 }
