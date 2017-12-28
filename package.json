@@ -1,6 +1,6 @@
 {
   "name": "reactors-icons",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Font icons support for reactors",
   "main": "dist/components/Icon.js",
   "scripts": {
@@ -11,7 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "react-native-vector-icons": "^4.4.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
