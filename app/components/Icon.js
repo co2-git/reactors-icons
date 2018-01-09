@@ -16,8 +16,10 @@ export default class Icon extends PureComponent {
       document.querySelector('head').appendChild(link);
     }
     case 'mobile': {
-      const {createIconSetFromFontello} = require('react-native-vector-icons');
-      IconMobile = createIconSetFromFontello(href.mobile.config, href.font);
+      if (Reactors.platform === 'mobile') {
+        const {createIconSetFromFontello} = require(Reactors.platform === 'mobile' ? 'react-native-vector-icons' : '../fakeMobile');
+        IconMobile = createIconSetFromFontello(href.mobile.config, href.font);
+      }
     }
     }
   };

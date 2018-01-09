@@ -1,6 +1,6 @@
 {
   "name": "reactors-icons",
-  "version": "3.0.1",
+  "version": "3.0.6",
   "description": "Font icons support for reactors",
   "main": "dist/components/Icon.js",
   "scripts": {
